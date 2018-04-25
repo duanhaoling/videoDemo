@@ -8,11 +8,16 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ScrollingActivity extends AppCompatActivity {
     private String msg1, msg2, msg3;
@@ -21,10 +26,12 @@ public class ScrollingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,6 +44,37 @@ public class ScrollingActivity extends AppCompatActivity {
                         }).show();
             }
         });
+
+        //批量申请权限测试
+        checkPermissions();
+    }
+
+    /**
+     * 批量申请权限：1.获取设备id 2.写sd卡 3获取定位
+     * 若不授予则继续后续逻辑
+     */
+    private void checkPermissions() {
+        int canReadPhoneState = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE);
+        int canWriteExStorage = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        int canLocation = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION);
+        List<String> list = new ArrayList<>();
+        if (PackageManager.PERMISSION_DENIED == canReadPhoneState) {
+            list.add(Manifest.permission.READ_PHONE_STATE);
+        }
+        if (PackageManager.PERMISSION_DENIED == canWriteExStorage) {
+            list.add(Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        }
+        if (PackageManager.PERMISSION_DENIED == canLocation) {
+            list.add(Manifest.permission.ACCESS_COARSE_LOCATION);
+        }
+        String[] permissions = list.toArray(new String[list.size()]);
+        if (PackageManager.PERMISSION_DENIED == canReadPhoneState
+                || PackageManager.PERMISSION_DENIED == canWriteExStorage
+                || PackageManager.PERMISSION_DENIED == canLocation) {
+            ActivityCompat.requestPermissions(this, permissions, 0x100);
+        } else {
+            // go on
+        }
     }
 
 
