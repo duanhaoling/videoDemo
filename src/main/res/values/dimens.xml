@@ -1,0 +1,19 @@
+<resources>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+
+    <dimen name="XLR">20dp</dimen>
+    <dimen name="LR">5dp</dimen>
+    <dimen name="MR">3dp</dimen>
+    <dimen name="SR">2dp</dimen>
+
+    <dimen name="H0Font">22sp</dimen>
+    <dimen name="H1Font">20sp</dimen>
+    <dimen name="H2Font">18sp</dimen>
+    <dimen name="H3Font">16sp</dimen>
+    <dimen name="H4Font">14sp</dimen>
+    <dimen name="H5Font">12sp</dimen>
+    <dimen name="H6Font">10sp</dimen>
+</resources>
