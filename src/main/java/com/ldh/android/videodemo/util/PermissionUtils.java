@@ -1,4 +1,4 @@
-package com.ldh.android.videodemo;
+package com.ldh.android.videodemo.util;
 
 import android.Manifest;
 import android.app.Activity;
@@ -11,6 +11,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
+
+import com.ldh.android.videodemo.R;
 
 /**
  * Created by ldh on 2018/4/25.

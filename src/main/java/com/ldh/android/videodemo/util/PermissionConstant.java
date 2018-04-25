@@ -1,4 +1,4 @@
-package com.ldh.android.videodemo;
+package com.ldh.android.videodemo.util;
 
 public class PermissionConstant {
     public static final int PERMISSIONS_REQUEST_ACCESS_COARSE_LOCATION = 100;

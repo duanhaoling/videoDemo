@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.ldh.android.videodemo;
+package com.ldh.android.videodemo.util;
 
 import android.annotation.TargetApi;
 import android.content.Context;

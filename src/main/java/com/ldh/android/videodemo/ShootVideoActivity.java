@@ -26,6 +26,8 @@ import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.ldh.android.videodemo.util.Utils;
+
 import java.io.File;
 import java.io.IOException;
 import java.lang.ref.WeakReference;
